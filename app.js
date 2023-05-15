@@ -1,7 +1,13 @@
-// Global - no window !!!
+// CommonJS, every files is module (by default)
+// Modules - Encapsulated code (only share minimum)
 
-// __directname - path to current directory
-// __filename - file name
-// require - function to use modulea (CommonJS)
-// module - info about current module (file)
-// process - info about env where the program is being executed
+const names = require("./4-names");
+// const { john, peter } = require("./4-names");
+const sayHi = require("./5-utils");
+
+const data = require("./6-alternative-flavor");
+
+console.log(data);
+sayHi("susan");
+sayHi(names.john);
+sayHi(names.peter);
