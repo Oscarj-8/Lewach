@@ -1,19 +1,13 @@
-const path = require("path");
+const { readFileSync, writeFileSync } = require("fs");
 
-// method returns what separator the computer uses
-console.log(path.sep);
+// Reading the files
+const firstOne = readFileSync("./content/first.txt", "utf-8");
+const secondOne = readFileSync("./content/second.txt", "utf-8");
 
-// method that joins file path
-const filePath = path.join("/content", "subfolder", "test.txt");
+console.log(firstOne + ". " + secondOne);
 
-console.log(filePath);
-
-// method that returns the last content in the path
-const base = path.basename(filePath);
-
-console.log(base);
-
-// method that returns the absolute path
-const absolute = path.resolve(__dirname, "content", "subfolder", "test.txt");
-
-console.log(absolute);
+// Writing new file
+writeFileSync(
+  "./content/result-sync.txt",
+  `Here is the sync of first one and second one: ${firstOne}, ${secondOne}`
+);
