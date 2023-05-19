@@ -4,8 +4,12 @@
   "description": "This is for tutorial purpose",
   "main": "1-intro.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm app",
+    "dev": "nodemon app"
   },
   "author": "Oscar jr",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
 }
