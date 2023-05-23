@@ -1,0 +1,14 @@
+{
+  "name": "node-tut",
+  "version": "1.0.0",
+  "description": "This is for tutorial purpose",
+  "main": "1-intro.js",
+  "scripts": {
+    "start": "nodemon app"
+  },
+  "author": "Oscar jr",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
