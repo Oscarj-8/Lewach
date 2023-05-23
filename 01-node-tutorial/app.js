@@ -1,21 +1,17 @@
-const http = require("http");
+const { readFile } = require("fs");
 
-const server = http.createServer((req, res) => {
-  if (req.url === "/") {
-    res.end("Home page");
-  } else if (req.url === "/about") {
-    // Blocking code, slows down performance and speed
-    for (let i = 0; i < 1000; i++) {
-      for (let j = 0; j < 1000; j++) {
-        console.log(`i is ${i} and j is ${j}`);
+const getText = (path) => {
+  return new Promise((resolve, reject) => {
+    readFile(path, "utf8", (err, data) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(data);
       }
-    }
-    res.end("About page");
-  } else {
-    res.end("Oops sorry, we couldn't find the page you are looking for");
-  }
-});
+    });
+  });
+};
 
-server.listen(5000, () => {
-  console.log("Server listening on port: 5000");
-});
+getText("./content/first.txt")
+  .then((result) => console.log(result))
+  .catch((err) => console.log(err));
